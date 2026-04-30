@@ -24,5 +24,8 @@ path(X,Y,CX, CY) :- target(X,Y,XX,_), CX=XX..X, CY=Y.
 :- path(X1,Y1,CX,CY), path(X2,Y2,CX,CY), X1 = X2, Y1 < Y2.
 % achieved: no two different numbers can share a path cell (CX,CY).
 
+:- goal(A,G), #sum { N,X,Y : target(X,Y,XX,YY), area(XX,YY,A), number(X,Y,N) } != G.
+% achieved: for areas with a goal, the sum of numbers moved into it must equal exactly that goal.
+
 
 #show target/4.
